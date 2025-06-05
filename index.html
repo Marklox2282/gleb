@@ -1,69 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loop Video</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>глеб писька</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Rubik', sans-serif;
+      background: linear-gradient(135deg, #111, #222);
       height: 100vh;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .background {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('background.png') center center / cover no-repeat;
+      filter: blur(20px) brightness(0.4);
+      z-index: -2;
+    }
+
+    .video-wrapper {
+      max-width: 90vw;
+      max-height: 70vh;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     }
 
     video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.5) saturate(1.2);
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: black;
     }
 
     .caption {
-      position: relative;
-      width: 100%;
-      text-align: center;
-      padding: 20px;
-      font-size: 32px;
-      font-weight: bold;
+      margin-top: 20px;
+      font-size: 28px;
       color: #fff;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      text-shadow: 0 0 5px #000;
       background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(8px);
-      animation: fadeInUp 1s ease-in-out;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      padding: 8px 16px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop>
-    <source src="video.mp4" type="video/mp4" />
-    Ваш браузер не поддерживает видео.
-  </video>
+  <div class="background"></div>
+
+  <div class="video-wrapper">
+    <video autoplay muted loop>
+      <source src="video.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  </div>
 
   <div class="caption">глеб писька</div>
 </body>
